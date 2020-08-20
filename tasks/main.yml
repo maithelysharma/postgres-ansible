@@ -1,0 +1,11 @@
+---
+- name: install pgdm package
+  raw: amazon-linux-extras install postgresql10 vim epel -y
+- name: install postgresql
+  raw: yum install -y postgresql-server postgresql-devel
+- name: create db
+  raw: /usr/bin/postgresql-setup --initdb
+- name: enable service
+  raw: systemctl enable postgresql
+- name: start service
+  raw: systemctl start postgresql
